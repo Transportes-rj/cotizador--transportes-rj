@@ -8,7 +8,7 @@
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f7fb;color:#17212b}
 header{background:#0b4f9c;color:white;text-align:center;padding:16px}
-.logo{display:block;max-width:250px;width:94%;margin:0 auto 10px;background:#fff;border-radius:14px;padding:8px}
+.logo{display:block;max-width:300px;width:82%;height:auto;margin:0 auto 10px;background:#fff;border-radius:12px;padding:7px}
 header h1{margin:5px 0;font-size:25px}header p{margin:4px 0;font-size:14px}
 main{max-width:700px;margin:18px auto;padding:0 12px}
 .card{background:#fff;border-radius:15px;padding:19px;margin-bottom:13px;box-shadow:0 5px 20px #00000010}
@@ -44,7 +44,7 @@ footer{text-align:center;padding:8px 0 22px;color:#697682;font-size:13px}
 <form id="form">
 
 <section class="card">
-<h2>1.  🚚¿Qué servicio deseas cotizar?</h2>
+<h2>1. 🚚 ¿Qué servicio deseas cotizar?</h2>
 <div class="options">
 <label class="option"><input required type="radio" name="servicio" value="Mudanza con servicio completo">🏠 <strong>Mudanza con servicio completo</strong>
 <div class="service-info" onclick="toggleServiceInfo(event,this)">¿Qué incluye?</div>
@@ -67,8 +67,10 @@ footer{text-align:center;padding:8px 0 22px;color:#697682;font-size:13px}
 
 <section class="card">
 <h2>2. 📍 ¿Desde dónde y hacia dónde?</h2>
-<label>Origen *</label><input id="origen" required placeholder="Comuna o ciudad">
-<label>Destino *</label><input id="destino" required placeholder="Comuna o ciudad">
+<div class="grid">
+<div><label>📦 Dirección de origen *</label><input id="origen" required placeholder="Ej.: Av. Pajaritos 1234, Maipú"></div>
+<div><label>🏠 Dirección de destino *</label><input id="destino" required placeholder="Ej.: Av. Apoquindo 4500, Las Condes"></div>
+</div>
 <div class="grid">
 <div><label>Tipo de lugar en origen</label><select id="tipoO"><option>Casa</option><option>Departamento</option></select></div>
 <div><label>¿En qué piso está el origen?</label><select id="pisoO"><option>1° piso</option><option>2° piso</option><option>3° piso</option><option>4° piso</option><option>5° piso o más</option></select></div>
@@ -151,8 +153,8 @@ function extras(){
 }
 function resumen(){
  let s=`🚚 Servicio: ${servicio()}
-📍 Origen: ${v('origen')}
-📍 Destino: ${v('destino')}
+📍 Origen: ${v('origen')} — 
+📍 Destino: ${v('destino')} — 
 🏠 Origen: ${v('tipoO')} / ${v('pisoO')}\n🏠 Destino: ${v('tipoD')} / ${v('pisoD')}
 🛗 Ascensores: ${v('ascO')} / ${v('ascD')}
 🅿️ Estacionamiento cercano: ${v('parking')}
