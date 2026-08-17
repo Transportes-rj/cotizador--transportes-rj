@@ -5,46 +5,265 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cotizador rápido | Transportes R&J</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fa;color:#17212b}
-header{background:#063b78;color:white;text-align:center;padding:16px}
-.logo{display:block;max-width:300px;width:82%;height:auto;margin:0 auto 10px;background:#fff;border-radius:12px;padding:7px}
-header h1{margin:5px 0;font-size:25px}header p{margin:4px 0;font-size:14px}
-main{max-width:700px;margin:18px auto;padding:0 12px}
-.card{background:#fff;border-radius:15px;padding:19px;margin-bottom:13px;box-shadow:0 5px 20px #00000010}
-h2{color:#063b78;font-size:20px;margin:0 0 10px}
-label{display:block;font-weight:700;margin:12px 0 6px}
-input,select,textarea{width:100%;padding:12px;border:1px solid #ccd6df;border-radius:9px;font-size:16px}
-.options{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.option{border:1px solid #d6e0ea;border-radius:10px;padding:11px;background:#f8fbff;font-weight:600}
-.option input{width:auto;margin-right:6px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.extra{background:#f5f9ff;border:1px solid #c9d9ec;padding:12px;border-radius:10px;margin-top:9px}
-.hidden{display:none}
-.btn{width:100%;border:0;border-radius:10px;padding:14px;margin-top:12px;background:#063b78;color:#fff;font-size:17px;font-weight:bold}
-.summary{white-space:pre-wrap;background:#f5f9ff;border:1px solid #c9d9ec;border-radius:10px;padding:13px;line-height:1.45}
-.small{font-size:13px;color:#697682}
-footer{text-align:center;padding:8px 0 22px;color:#697682;font-size:13px}
-@media(max-width:560px){.options,.grid{grid-template-columns:1fr}.card{padding:17px}}
 
-.service-info{font-size:13px;color:#063b78;margin-top:6px;cursor:pointer;font-weight:700}
-.service-detail{display:none;font-size:12px;color:#5f6b76;margin-top:5px;line-height:1.35}
+*{box-sizing:border-box}
+:root{
+  --navy:#062f63;
+  --navy2:#0b4b91;
+  --blue:#0d63bd;
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --line:#d9e3ee;
+  --text:#17212b;
+  --muted:#6b7a89;
+}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,#edf3f9 0%,#f7f9fc 45%,#f4f7fb 100%);
+  color:var(--text);
+}
+header{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 68%,var(--blue) 100%);
+  color:#fff;
+  text-align:center;
+  padding:34px 18px 42px;
+  box-shadow:0 8px 28px rgba(6,47,99,.18);
+}
+.logo{
+  display:block;
+  width:210px;
+  max-width:64vw;
+  height:auto;
+  margin:0 auto 18px;
+  background:#fff;
+  border-radius:18px;
+  padding:9px;
+  box-shadow:0 12px 28px rgba(0,0,0,.18);
+}
+header h1{
+  margin:0;
+  font-size:31px;
+  line-height:1.15;
+  letter-spacing:-.3px;
+}
+header p{
+  margin:9px auto 0;
+  max-width:560px;
+  font-size:15px;
+  line-height:1.5;
+  color:rgba(255,255,255,.92);
+}
+.badge{
+  display:inline-block;
+  margin-top:14px;
+  padding:8px 13px;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.24);
+  font-size:13px;
+  font-weight:700;
+}
+main{
+  max-width:760px;
+  margin:-18px auto 0;
+  padding:0 14px 30px;
+  position:relative;
+}
+.trust{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-bottom:14px;
+}
+.trust div{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:10px 8px;
+  text-align:center;
+  font-size:12px;
+  font-weight:700;
+  color:#4d6277;
+  box-shadow:0 6px 16px rgba(34,56,85,.05);
+}
+.card{
+  background:var(--card);
+  border:1px solid rgba(217,227,238,.95);
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:14px;
+  box-shadow:0 10px 28px rgba(34,56,85,.08);
+}
+.step{
+  display:block;
+  margin-bottom:5px;
+  color:var(--blue);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+h2{
+  color:var(--navy);
+  font-size:21px;
+  line-height:1.25;
+  margin:0 0 14px;
+}
+label{
+  display:block;
+  font-weight:700;
+  color:#253a4f;
+  margin:13px 0 6px;
+}
+input,select,textarea{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid #cad7e4;
+  border-radius:11px;
+  font-size:16px;
+  background:#fff;
+  color:var(--text);
+  outline:none;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(13,99,189,.12);
+}
+textarea{resize:vertical;min-height:108px}
+.options{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.option{
+  border:1px solid #d3dfeb;
+  border-radius:13px;
+  padding:14px;
+  background:#fbfdff;
+  font-weight:700;
+  transition:.18s ease;
+}
+.option:hover{
+  border-color:#9fbee0;
+  background:#f7fbff;
+  box-shadow:0 7px 18px rgba(6,59,120,.08);
+}
+.option:has(input:checked){
+  border-color:var(--blue);
+  background:#eef6ff;
+  box-shadow:0 0 0 2px rgba(13,99,189,.08);
+}
+.option input{
+  width:auto;
+  margin-right:8px;
+  accent-color:var(--blue);
+}
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:11px;
+}
+.extra{
+  background:#f6faff;
+  border:1px solid #cbdced;
+  padding:14px;
+  border-radius:12px;
+  margin-top:10px;
+}
+.hidden{display:none}
+.service-info{
+  font-size:13px;
+  color:var(--blue);
+  margin-top:8px;
+  cursor:pointer;
+  font-weight:800;
+}
+.service-detail{
+  display:none;
+  font-size:12.5px;
+  color:#5d6e80;
+  margin-top:7px;
+  line-height:1.45;
+  font-weight:500;
+}
 .option.open .service-detail{display:block}
+.summary{
+  white-space:pre-wrap;
+  background:#f7f9fc;
+  border:1px solid #d2deea;
+  border-radius:12px;
+  padding:14px;
+  line-height:1.5;
+  color:#31465a;
+}
+.actions{
+  display:grid;
+  gap:10px;
+  margin-top:12px;
+}
+.btn{
+  width:100%;
+  border:0;
+  border-radius:11px;
+  padding:14px 16px;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+}
+.btn-review{
+  background:#edf4fb;
+  color:var(--navy);
+  border:1px solid #c9d9e9;
+}
+.btn-whatsapp{
+  background:linear-gradient(135deg,#0a4b91,#0d65c2);
+  color:#fff;
+  box-shadow:0 9px 20px rgba(13,95,184,.22);
+}
+.small{
+  font-size:12.8px;
+  color:var(--muted);
+  line-height:1.45;
+  margin:11px 2px 0;
+}
+footer{
+  text-align:center;
+  padding:4px 14px 28px;
+  color:#6c7a88;
+  font-size:13px;
+}
+@media(max-width:560px){
+  header{padding:27px 16px 34px}
+  header h1{font-size:27px}
+  .logo{width:185px}
+  main{padding:0 10px 24px}
+  .options,.grid{grid-template-columns:1fr}
+  .card{padding:18px;border-radius:15px}
+  .trust div{font-size:11px;padding:9px 5px}
+}
+
 </style>
 </head>
 <body>
 <header>
 <img src="logo-rj.jpg" class="logo" alt="Transportes R&J">
-<h1>🚚 Cotiza tu servicio</h1>
-<p><strong>⏱️ Cotiza en menos de 2 minutos</strong></p>
-<p>Completa lo principal y te contactamos por WhatsApp.</p>
+<h1>Cotiza tu traslado</h1>
+<p>Completa los datos principales de tu mudanza o transporte y prepararemos una cotización personalizada.</p>
+<div class="badge">Respuesta por WhatsApp · Santiago y Regiones</div>
 </header>
 
 <main>
+<div class="trust">
+  <div>Atención personalizada</div>
+  <div>Solicitud ordenada</div>
+  <div>Respuesta por WhatsApp</div>
+</div>
 <form id="form">
 
 <section class="card">
-<h2>1. 🚚 ¿Qué servicio deseas cotizar?</h2>
+<span class="step">Paso 1</span><h2>¿Qué servicio deseas cotizar?</h2>
 <div class="options">
 <label class="option"><input required type="radio" name="servicio" value="Mudanza con servicio completo">🏠 <strong>Mudanza con servicio completo</strong>
 <div class="service-info" onclick="toggleServiceInfo(event,this)">¿Qué incluye?</div>
@@ -66,7 +285,7 @@ footer{text-align:center;padding:8px 0 22px;color:#697682;font-size:13px}
 </section>
 
 <section class="card">
-<h2>2. 📍 ¿Desde dónde y hacia dónde?</h2>
+<span class="step">Paso 2</span><h2>Origen y destino</h2>
 <div class="grid">
 <div><label>📦 Dirección de origen *</label><input id="origen" required placeholder="Ej.: Av. Pajaritos 1234, Maipú"></div>
 <div><label>🏠 Dirección de destino *</label><input id="destino" required placeholder="Ej.: Av. Apoquindo 4500, Las Condes"></div>
@@ -84,14 +303,14 @@ footer{text-align:center;padding:8px 0 22px;color:#697682;font-size:13px}
 </section>
 
 <section class="card">
-<h2>3. 📦 Cuéntanos qué necesitas trasladar</h2>
+<span class="step">Paso 3</span><h2>¿Qué necesitas trasladar?</h2>
 <textarea id="inventario" required rows="4" placeholder="Ej: sofá, refrigerador, 2 camas, mesa, lavadora..."></textarea>
 <label>Cajas aproximadas</label>
 <select id="cajas"><option>No sé</option><option>1–10</option><option>11–20</option><option>21–40</option><option>Más de 40</option></select>
 </section>
 
 <section class="card">
-<h2>4. ➕ ¿Necesitas algo adicional?</h2>
+<span class="step">Paso 4</span><h2>Servicios adicionales</h2>
 <div class="options">
 <label class="option"><input id="emb" type="checkbox">📦 Embalaje</label>
 <label class="option"><input id="arm" type="checkbox">🔧 Armado / desarmado</label>
@@ -112,23 +331,25 @@ footer{text-align:center;padding:8px 0 22px;color:#697682;font-size:13px}
 </section>
 
 <section class="card">
-<h2>5. 📅 Fecha y contacto</h2>
+<span class="step">Paso 5</span><h2>Fecha y datos de contacto</h2>
 <label>Fecha *</label><input id="fecha" type="date" required>
 <label>Nombre *</label><input id="nombre" required placeholder="Tu nombre">
 <label>WhatsApp *</label><input id="telefono" required placeholder="+56 9 ...">
 </section>
 
 <section class="card">
-<h2>✅ Listo</h2>
+<span class="step">Último paso</span><h2>Revisa y envía tu solicitud</h2>
 <div id="summary" class="summary">Presiona “Revisar” antes de enviar.</div>
-<button type="button" class="btn" onclick="resumen()">👀 Revisar</button>
-<button type="submit" class="btn">📲 Enviar por WhatsApp</button>
+<div class="actions">
+<button type="button" class="btn btn-review" onclick="resumen()">Revisar solicitud</button>
+<button type="submit" class="btn btn-whatsapp">Enviar solicitud por WhatsApp</button>
+</div>
 <p class="small">Transportes R&J revisará tu solicitud y preparará una cotización personalizada.</p>
 </section>
 
 </form>
 </main>
-<footer>Transportes R&J • Santiago y Regiones 🇨🇱</footer>
+<footer><strong>Transportes R&J</strong> · Mudanzas y transportes en Santiago y Regiones</footer>
 
 <script>
 
