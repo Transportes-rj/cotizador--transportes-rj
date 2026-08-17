@@ -8,9 +8,9 @@
 
 *{box-sizing:border-box}
 :root{
-  --navy:#062f63;
-  --navy2:#0b4b91;
-  --blue:#0d63bd;
+  --navy:#031d3d;
+  --navy2:#063267;
+  --blue:#08427f;
   --bg:#f4f7fb;
   --card:#ffffff;
   --line:#d9e3ee;
@@ -21,11 +21,11 @@ html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  background:linear-gradient(180deg,#edf3f9 0%,#f7f9fc 45%,#f4f7fb 100%);
+  background:linear-gradient(180deg,#d9dee5 0%,#eef0f3 42%,#e3e6ea 100%);
   color:var(--text);
 }
 header{
-  background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 68%,var(--blue) 100%);
+  background:linear-gradient(135deg,#02172f 0%,#032b59 65%,#063a73 100%);
   color:#fff;
   text-align:center;
   padding:34px 18px 42px;
@@ -85,7 +85,7 @@ main{
   text-align:center;
   font-size:12px;
   font-weight:700;
-  color:#4d6277;
+  color:#233b55;
   box-shadow:0 6px 16px rgba(34,56,85,.05);
 }
 .card{
@@ -99,7 +99,7 @@ main{
 .step{
   display:block;
   margin-bottom:5px;
-  color:var(--blue);
+  color:var(--navy2);
   font-size:12px;
   font-weight:800;
   letter-spacing:.08em;
@@ -128,7 +128,7 @@ input,select,textarea{
   outline:none;
 }
 input:focus,select:focus,textarea:focus{
-  border-color:var(--blue);
+  border-color:var(--navy2);
   box-shadow:0 0 0 3px rgba(13,99,189,.12);
 }
 textarea{resize:vertical;min-height:108px}
@@ -141,24 +141,24 @@ textarea{resize:vertical;min-height:108px}
   border:1px solid #d3dfeb;
   border-radius:13px;
   padding:14px;
-  background:#fbfdff;
+  background:#ffffff;
   font-weight:700;
   transition:.18s ease;
 }
 .option:hover{
-  border-color:#9fbee0;
-  background:#f7fbff;
+  border-color:#496b91;
+  background:#f7f8fa;
   box-shadow:0 7px 18px rgba(6,59,120,.08);
 }
 .option:has(input:checked){
-  border-color:var(--blue);
-  background:#eef6ff;
+  border-color:var(--navy2);
+  background:#e7ebf0;
   box-shadow:0 0 0 2px rgba(13,99,189,.08);
 }
 .option input{
   width:auto;
   margin-right:8px;
-  accent-color:var(--blue);
+  accent-color:var(--navy2);
 }
 .grid{
   display:grid;
@@ -166,7 +166,7 @@ textarea{resize:vertical;min-height:108px}
   gap:11px;
 }
 .extra{
-  background:#f6faff;
+  background:#f5f6f8;
   border:1px solid #cbdced;
   padding:14px;
   border-radius:12px;
@@ -175,7 +175,7 @@ textarea{resize:vertical;min-height:108px}
 .hidden{display:none}
 .service-info{
   font-size:13px;
-  color:var(--blue);
+  color:var(--navy2);
   margin-top:8px;
   cursor:pointer;
   font-weight:800;
@@ -191,7 +191,7 @@ textarea{resize:vertical;min-height:108px}
 .option.open .service-detail{display:block}
 .summary{
   white-space:pre-wrap;
-  background:#f7f9fc;
+  background:#f5f6f8;
   border:1px solid #d2deea;
   border-radius:12px;
   padding:14px;
@@ -213,12 +213,12 @@ textarea{resize:vertical;min-height:108px}
   cursor:pointer;
 }
 .btn-review{
-  background:#edf4fb;
+  background:#eef0f3;
   color:var(--navy);
-  border:1px solid #c9d9e9;
+  border:1px solid #c7cdd5;
 }
 .btn-whatsapp{
-  background:linear-gradient(135deg,#0a4b91,#0d65c2);
+  background:linear-gradient(135deg,#021b38,#043064);
   color:#fff;
   box-shadow:0 9px 20px rgba(13,95,184,.22);
 }
