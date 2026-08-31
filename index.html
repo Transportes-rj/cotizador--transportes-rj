@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="es">
 <head>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3XLD211MN1"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-3XLD211MN1');
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cotizador rápido | Transportes R&J</title>
@@ -395,7 +403,8 @@ ${extras()}
 document.getElementById('form').addEventListener('submit',e=>{
  e.preventDefault();if(!e.target.checkValidity()){e.target.reportValidity();return}
  let m='Hola Transportes R&J 👋\\n\\nQuiero solicitar una cotización:\\n\\n'+resumen();
- window.open('https://wa.me/56949491956?text='+encodeURIComponent(m),'_blank');
+ if(typeof gtag==='function'){gtag('event','cotizacion_whatsapp',{event_category:'Cotizador',event_label:'Enviar solicitud por WhatsApp'});}
+ window.open('https://wa.me/56954666342?text='+encodeURIComponent(m),'_blank');
 });
 </script>
 </body></html>
